@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fill in your sheet — RegSheet</title>
+  <meta name="description" content="A private fill-in sheet of fields described for the Register your rental property service. Not a registration. Not legal advice.">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+  <div class="banner">
+    <p><strong>Not legal advice.</strong> This sheet does not say you are compliant, exempt, licensable, or safe from a penalty. It does not register a property and it does not send anything to GOV.UK. RegSheet is not affiliated with GOV.UK, the NRLA, or any tenancy deposit scheme. The Private Rented Sector Database Regulations 2026 were still a draft when this page was written (4 October 2026).</p>
+  </div>
+  <div class="wrap wide">
+    <header class="site">
+      <a class="word" href="index.html">RegSheet</a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="dates.html">Regional dates</a>
+        <a href="sheet.html" aria-current="page">Sheet</a>
+      </nav>
+    </header>
+
+    <h1>Fill in your own sheet</h1>
+    <p class="lede">Type the details the draft regulations list for a landlord entry and a dwelling entry. When you print, empty answers stay empty and are marked “you still need this”.</p>
+
+    <div class="note">
+      <p>Everything stays in this browser. There is no account, no upload, and no check of your answers. A gas safety record, EICR, EIC, EPC, or authority document is not attached here, even where the draft regulations ask for a copy. Checkout is not connected, so this page does not take the £29 or £49.</p>
+    </div>
+
+    <form class="sheet" id="sheet-form" action="#" autocomplete="off">
+      <fieldset>
+        <legend>Before the fields</legend>
+        <label class="field" for="region"><span class="q">Which region is the property in?</span>
+          <select id="region" name="region">
+            <option value="">Choose a region</option>
+            <option value="wm">West Midlands</option>
+            <option value="eoe">East of England</option>
+            <option value="em">East Midlands</option>
+            <option value="se">South East</option>
+            <option value="yh">Yorkshire and Humber</option>
+            <option value="nw">North West</option>
+            <option value="ne">North East</option>
+            <option value="lon">London</option>
+            <option value="sw">South West</option>
+          </select>
+        </label>
+        <p class="field-hint" id="region-note"></p>
+        <p class="field-hint">This region line is a RegSheet helper so the printout can show the dates. It is not one of the numbered items in Schedule 2 or Schedule 3. LandlordZONE says the deadline follows the property’s location, not where the landlord lives. If these dwellings are in different regions, print a separate sheet. This form assumes one region.</p>
+
+        <label class="field" for="property-count"><span class="q">How many dwellings are on this sheet?</span>
+          <select id="property-count" name="property-count">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </label>
+        <p class="field-hint" id="price-note"></p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Landlord entry</legend>
+        <p class="field-hint">Schedule 2 of the draft Private Rented Sector Database Regulations 2026. One landlord entry on this sheet. The NRLA says each joint landlord needs their own landlord entry, with one dwelling entry linked to each. If that is your situation, fill and print once per landlord. This page does not decide whether you are a joint landlord.</p>
+
+        <p class="q" id="kind-label">Is the landlord an individual?</p>
+        <div class="choices" role="radiogroup" aria-labelledby="kind-label">
+          <label><input type="radio" name="landlord-kind" value="individual" checked> An individual</label>
+          <label><input type="radio" name="landlord-kind" value="organisation"> Not an individual</label>
+        </div>
+
+        <div id="individual-fields">
+          <h3>Individual landlord</h3>
+          <label class="field" for="ind-name"><span class="q">Name</span>
+            <input id="ind-name" type="text" autocomplete="name">
+          </label>
+          <label class="field" for="ind-dob"><span class="q">Date of birth</span>
+            <input id="ind-dob" type="date" autocomplete="bday">
+          </label>
+          <label class="field" for="ind-address"><span class="q">Residential address</span>
+            <textarea id="ind-address" autocomplete="street-address"></textarea>
+          </label>
+          <label class="field" for="ind-phone"><span class="q">Telephone number</span>
+            <input id="ind-phone" type="tel" autocomplete="tel">
+          </label>
+          <label class="field" for="ind-email"><span class="q">Email address</span>
+            <input id="ind-email" type="email" autocomplete="email">
+          </label>
+        </div>
+
+        <div id="organisation-fields" class="hidden">
+          <h3>Where the landlord is not an individual</h3>
+          <label class="field" for="org-name"><span class="q">Name of organisation, or description by which it is known</span>
+            <input id="org-name" type="text" autocomplete="organization">
+          </label>
+          <label class="field" for="org-entity"><span class="q">Type of legal entity</span>
+            <input id="org-entity" type="text" autocomplete="off">
+          </label>
+          <p class="field-hint">The draft regulations do not list company, partnership, charity, or any other type as a menu. Write the type in your own words.</p>
+          <label class="field" for="org-address"><span class="q">Address (the draft regulations say this may not be a PO Box number)</span>
+            <textarea id="org-address" autocomplete="off"></textarea>
+          </label>
+          <label class="field" for="org-phone"><span class="q">Telephone number</span>
+            <input id="org-phone" type="tel" autocomplete="tel">
+          </label>
+          <label class="field" for="org-email"><span class="q">Email address</span>
+            <input id="org-email" type="email" autocomplete="email">
+          </label>
+
+          <h3>Individual making the entry for the organisation</h3>
+          <label class="field" for="maker-name"><span class="q">Name</span>
+            <input id="maker-name" type="text" autocomplete="name">
+          </label>
+          <label class="field" for="maker-dob"><span class="q">Date of birth</span>
+            <input id="maker-dob" type="date">
+          </label>
+          <label class="field" for="maker-email"><span class="q">Email address</span>
+            <input id="maker-email" type="email" autocomplete="email">
+          </label>
+          <label class="field" for="maker-phone"><span class="q">Telephone number</span>
+            <input id="maker-phone" type="tel" autocomplete="tel">
+          </label>
+
+          <h3>Nominated contact for the database</h3>
+          <label class="field" for="nom-name"><span class="q">Name</span>
+            <input id="nom-name" type="text" autocomplete="off">
+          </label>
+          <label class="field" for="nom-email"><span class="q">Email address</span>
+            <input id="nom-email" type="email" autocomplete="off">
+          </label>
+          <label class="field" for="nom-phone"><span class="q">Telephone number</span>
+            <input id="nom-phone" type="tel" autocomplete="off">
+          </label>
+
+          <label class="field" for="ch-number"><span class="q">Companies House registration number, if applicable</span>
+            <input id="ch-number" type="text" autocomplete="off">
+          </label>
+          <p class="field-hint">Leave this blank if there is no Companies House number. If it is blank, the next box is one the draft regulations ask for.</p>
+          <label class="field" for="charity-number"><span class="q">Charity number, if applicable</span>
+            <input id="charity-number" type="text" autocomplete="off">
+          </label>
+          <p class="field-hint">The draft regulations say “if applicable”. A blank charity number is not marked missing when you print. A blank is not the same as a statement that you have no charity number.</p>
+
+          <label class="field" for="governors"><span class="q">Where a Companies House registration number is not provided: names, dates of birth and addresses of all directors, trustees, partners or members of the governing body</span>
+            <textarea id="governors" autocomplete="off"></textarea>
+          </label>
+
+          <label class="choices"><input id="is-trust" type="checkbox"> This organisation is constituted as a trust</label>
+          <div id="trust-fields" class="hidden">
+            <h3>Lead trustee</h3>
+            <p class="field-hint">The draft regulations ask for these where the organisation is constituted as a trust. “Lead trustee” means the trustee appointed by the trustees as lead trustee for registration on the database.</p>
+            <label class="field" for="trust-name"><span class="q">Name</span>
+              <input id="trust-name" type="text" autocomplete="off">
+            </label>
+            <label class="field" for="trust-dob"><span class="q">Date of birth</span>
+              <input id="trust-dob" type="date">
+            </label>
+            <label class="field" for="trust-address"><span class="q">Address</span>
+              <textarea id="trust-address" autocomplete="off"></textarea>
+            </label>
+            <label class="field" for="trust-email"><span class="q">Email address</span>
+              <input id="trust-email" type="email" autocomplete="off">
+            </label>
+            <label class="field" for="trust-phone"><span class="q">Telephone number</span>
+              <input id="trust-phone" type="tel" autocomplete="off">
+            </label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Who is making the entry</legend>
+        <p class="field-hint">Draft regulation 4 says that, apart from listed cases, a landlord or dwelling entry may only be made by a person who is, or intends to become, a residential landlord, or by a person in one of the capacities in Schedule 2 paragraph 17. A letting agent is not in that list. Your agent cannot press submit for you. Regulation 4(5) separately allows a letting agent or property manager to provide the Part 2 tenancy and safety information.</p>
+        <label class="field" for="capacity"><span class="q">In what capacity is this entry being made?</span>
+          <select id="capacity">
+            <option value="">Choose</option>
+            <option value="self">By the landlord themselves (not one of the other capacities below)</option>
+            <option value="a">Donee of a power of attorney</option>
+            <option value="b">Personal representative of a deceased person’s estate</option>
+            <option value="c">Court appointed deputy</option>
+            <option value="d">Guardian</option>
+            <option value="e">Receiver</option>
+            <option value="f">Trustee in bankruptcy</option>
+            <option value="g">Liquidator or provisional liquidator</option>
+            <option value="h">Administrator</option>
+            <option value="i">Administrative receiver</option>
+            <option value="j">A person acting in a similar or corresponding capacity under the law of a country or territory outside England and Wales</option>
+            <option value="k">A mortgagee, or a person appointed by the mortgagee to act on their behalf</option>
+          </select>
+        </label>
+        <div id="third-party-fields" class="hidden">
+          <p class="field-hint">Schedule 2 paragraphs 18 and 19. The draft regulations also ask for a certified or sealed copy of the authority. This sheet only records what you type about that document. It does not take the copy, and it does not decide that the capacity applies.</p>
+          <label class="field" for="tp-name"><span class="q">Name of the person making the entry</span>
+            <input id="tp-name" type="text" autocomplete="name">
+          </label>
+          <label class="field" for="tp-address"><span class="q">Address</span>
+            <textarea id="tp-address" autocomplete="off"></textarea>
+          </label>
+          <label class="field" for="tp-phone"><span class="q">Telephone number</span>
+            <input id="tp-phone" type="tel" autocomplete="tel">
+          </label>
+          <label class="field" for="tp-email"><span class="q">Email address</span>
+            <input id="tp-email" type="email" autocomplete="email">
+          </label>
+          <label class="field" for="tp-doc"><span class="q">What the authority document is, and its date (for example “grant of probate”, “power of attorney”). You still need the copy itself when you use the government service.</span>
+            <textarea id="tp-doc" autocomplete="off"></textarea>
+          </label>
+        </div>
+      </fieldset>
+
+
+      <fieldset class="dwelling" data-dwell="1">
+        <legend>Dwelling 1</legend>
+        <p class="field-hint">Schedule 3 of the draft regulations. Leave a line blank if you do not have it yet. The printout will say “you still need this”. Do not upload photographs or certificates here.</p>
+
+        <h3>Dwelling information (Part 1)</h3>
+
+        <label class="field"><span class="q">Address of the dwelling</span>
+          <textarea class="dwell-address" autocomplete="off"></textarea>
+        </label>
+
+        <label class="field"><span class="q">Name of the person who is, or intends to become, the residential landlord of this dwelling</span>
+          <input class="dwell-ll-name" type="text" autocomplete="name">
+        </label>
+        <button type="button" class="secondary same-name">Copy the name from the landlord entry above</button>
+
+        <label class="field"><span class="q">Correspondence address in England and Wales for that person, in relation to this dwelling. The draft regulations say this may not be a PO Box.</span>
+          <textarea class="dwell-corr" autocomplete="off"></textarea>
+        </label>
+        <button type="button" class="secondary same-address">Copy the address from the landlord entry above</button>
+
+        <label class="field"><span class="q">Email address for that person in relation to this dwelling</span>
+          <input class="dwell-email" type="email" autocomplete="email">
+        </label>
+        <button type="button" class="secondary same-email">Copy the email from the landlord entry above</button>
+
+        <label class="field"><span class="q">Ownership type</span>
+          <input class="ownership" type="text" autocomplete="off">
+        </label>
+        <p class="field-hint">The draft regulations say “ownership type” and do not list the options. The NRLA gives freehold and leasehold as examples. Write what applies, in your own words.</p>
+
+        <label class="field"><span class="q">Dwelling type</span>
+          <select class="dwell-type">
+            <option value="">Choose</option>
+            <option value="detached">Detached house</option>
+            <option value="semi">Semi-detached house</option>
+            <option value="terraced">Terraced house</option>
+            <option value="flat">Flat</option>
+            <option value="other">Other — describe it in the next box</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations define dwelling type as the physical form, “such as a detached house, semi-detached house, terraced house or a flat”. Those are examples, not a closed list printed as a menu.</p>
+        <label class="field"><span class="q">If you chose other, describe the dwelling type</span>
+          <input class="dwell-type-other" type="text" autocomplete="off">
+        </label>
+
+        <label class="field"><span class="q">Number of bedrooms</span>
+          <input class="bedrooms" type="text" inputmode="numeric" autocomplete="off">
+        </label>
+
+        <label class="field"><span class="q">Whether the dwelling is currently under let</span>
+          <select class="under-let">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+
+        <p class="field-hint">Name and email of any of the following. The draft regulations say “any of”, so a person who does not exist is not a missing document. Write “none” where there is nobody to name, so a blank is not mistaken for a finished answer.</p>
+
+        <label class="field"><span class="q">Owner of the freehold property which includes the dwelling — name</span>
+          <input class="fh-name" type="text" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Owner of the freehold — email address</span>
+          <input class="fh-email" type="email" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Any other superior landlord — name</span>
+          <input class="sup-name" type="text" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Any other superior landlord — email address</span>
+          <input class="sup-email" type="email" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Property manager for the dwelling — name</span>
+          <input class="pm-name" type="text" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Property manager — email address</span>
+          <input class="pm-email" type="email" autocomplete="off">
+        </label>
+
+        <h3>Tenancy and health and safety (Part 2)</h3>
+        <p class="field-hint">For a dwelling which is already let, the draft regulations allow the dwelling entry to be made first, and require this Part 2 information before the end of 28 days beginning with the day the entry was made. This page does not time that for you.</p>
+
+        <label class="field"><span class="q">Number of occupants of the dwelling</span>
+          <input class="occupants" type="text" inputmode="numeric" autocomplete="off">
+        </label>
+        <p class="field-hint">The draft regulations say “number of occupants”. They do not, in the text fetched, define occupants as excluding short-term guests. The NRLA describes this as tenants and permitted occupiers, not short-term guests. Use the NRLA gloss only as their description, not as a definition printed in the draft instrument.</p>
+
+        <label class="field"><span class="q">Number of households occupying the dwelling</span>
+          <input class="households" type="text" inputmode="numeric" autocomplete="off">
+        </label>
+
+        <label class="field"><span class="q">Does the dwelling require an HMO licence under section 55 of the Housing Act 2004?</span>
+          <select class="licence-need lic-hmo">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="licence-block">
+          <div class="licence-number-wrap hidden">
+            <label class="field"><span class="q">HMO licence number, if you have it</span>
+              <input class="lic-hmo-no" type="text" autocomplete="off">
+            </label>
+            <p class="field-hint">The draft regulations ask for the number if available. This sheet does not tell you whether a licence is required. Holding a licence does not, on the NRLA’s account, take the place of a database entry.</p>
+          </div>
+        </div>
+
+        <label class="field"><span class="q">Does the dwelling require an additional licence under a designation made under section 56 of the Housing Act 2004?</span>
+          <select class="licence-need lic-add">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="licence-block">
+          <div class="licence-number-wrap hidden">
+            <label class="field"><span class="q">Additional licence number, if you have it</span>
+              <input class="lic-add-no" type="text" autocomplete="off">
+            </label>
+          </div>
+        </div>
+
+        <label class="field"><span class="q">Does the dwelling require a selective licence under section 80 of the Housing Act 2004?</span>
+          <select class="licence-need lic-sel">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="licence-block">
+          <div class="licence-number-wrap hidden">
+            <label class="field"><span class="q">Selective licence number, if you have it</span>
+              <input class="lic-sel-no" type="text" autocomplete="off">
+            </label>
+          </div>
+        </div>
+
+        <label class="field"><span class="q">Does the dwelling have a gas supply?</span>
+          <select class="gas-supply">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="gas-extra hidden">
+          <label class="field"><span class="q">Gas safety record issue date</span>
+            <input class="gas-date" type="date">
+          </label>
+          <p class="field-hint">If a gas safety record exists, the draft regulations ask for a copy as well as the issue date. This sheet does not take a copy. Keep the record and give it on the government service if you register.</p>
+        </div>
+
+        <label class="field"><span class="q">Electrical safety document</span>
+          <select class="elec-route">
+            <option value="">Choose</option>
+            <option value="eicr">An EICR, if one exists — you will note the expiry date</option>
+            <option value="eic">An appropriate EIC — you will note the issue date</option>
+          </select>
+        </label>
+        <p class="field-hint">Schedule 3 asks for a copy of the EICR, if one exists, or an appropriate EIC, and for the EICR expiry date or the EIC issue date. “Expiry” is the word used for the EICR, not for the EIC. No file is uploaded here.</p>
+        <label class="field"><span class="q">EICR expiry date</span>
+          <input class="eicr-expiry" type="date">
+        </label>
+        <label class="field"><span class="q">EIC issue date</span>
+          <input class="eic-date" type="date">
+        </label>
+
+        <label class="field"><span class="q">Was the landlord required to give a valid EPC to the person who is the tenant currently occupying the dwelling?</span>
+          <select class="epc-required">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="epc-extra hidden">
+          <p class="field-hint">Where the answer is yes, the draft regulations ask for a copy of the most recent EPC, if one exists. This sheet does not take that copy.</p>
+        </div>
+
+        <label class="field"><span class="q">Is the most recent EPC still valid?</span>
+          <select class="epc-valid">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No, it is no longer valid</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations define “valid” by reference to regulation 9(2) of the Energy Performance of Buildings (England and Wales) Regulations 2012. This sheet does not apply that test.</p>
+        <div class="epc-invalid-extra hidden">
+          <label class="field"><span class="q">Date the current tenancy started</span>
+            <input class="tenancy-start" type="date">
+          </label>
+          <p class="field-hint">Asked by the draft regulations if the most recent EPC is no longer valid. The NRLA also says that where an EPC was not required, or has lapsed since the tenancy began, the landlord must provide the tenancy start date.</p>
+        </div>
+
+        <label class="field"><span class="q">Does the most recent EPC give an energy performance rating below the minimum level of energy efficiency?</span>
+          <select class="below-min">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations point “minimum level of energy efficiency” to regulation 22(b) of the Energy Efficiency (Private Rented Property) (England and Wales) Regulations 2015. They do not print a letter or number for that minimum in the text fetched on 4 October 2026. This sheet will not guess it.</p>
+        <div class="mees-extra hidden">
+          <label class="field"><span class="q">Has the dwelling a registered MEES exemption?</span>
+            <select class="mees-reg">
+              <option value="">Choose</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+          <label class="field"><span class="q">If yes, what types of exemption apply?</span>
+            <textarea class="mees-types" autocomplete="off"></textarea>
+          </label>
+          <p class="field-hint">“Registered MEES exemption” in the draft regulations means an exemption relied on and registered on the PRS Exemptions Register. Writing it here does not register an exemption.</p>
+        </div>
+
+        <label class="field"><span class="q">Rent charged</span>
+          <input class="rent-amount" type="text" autocomplete="off" placeholder="">
+        </label>
+        <p class="field-hint">Write the amount as you would say it. Include the currency yourself. This page does not calculate anything.</p>
+        <label class="field"><span class="q">How often it has to be paid</span>
+          <input class="rent-frequency" type="text" autocomplete="off">
+        </label>
+        <p class="field-hint">The draft regulations say “frequency of payment” and do not list weekly, monthly, or any other period as the only answers.</p>
+        <label class="field"><span class="q">Is the rent inclusive of utilities?</span>
+          <select class="rent-utils">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <label class="field"><span class="q">If yes, which utilities are included?</span>
+          <input class="which-utils" type="text" autocomplete="off">
+        </label>
+        <p class="field-hint">The NRLA summarises this as whether the rent includes bills. The draft regulations say “utilities”, and if so, what utilities are included.</p>
+
+        <label class="field"><span class="q">Is the dwelling let furnished, partly furnished, or unfurnished?</span>
+          <select class="furnished">
+            <option value="">Choose</option>
+            <option value="furnished">Furnished</option>
+            <option value="partly">Partly furnished</option>
+            <option value="unfurnished">Unfurnished</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations say “partly furnished”. The NRLA says “part furnished”. This sheet uses the draft regulations’ wording.</p>
+      </fieldset>
+
+
+      <fieldset class="dwelling" data-dwell="2">
+        <legend>Dwelling 2</legend>
+        <p class="field-hint">Schedule 3 of the draft regulations. Leave a line blank if you do not have it yet. The printout will say “you still need this”. Do not upload photographs or certificates here.</p>
+
+        <h3>Dwelling information (Part 1)</h3>
+
+        <label class="field"><span class="q">Address of the dwelling</span>
+          <textarea class="dwell-address" autocomplete="off"></textarea>
+        </label>
+
+        <label class="field"><span class="q">Name of the person who is, or intends to become, the residential landlord of this dwelling</span>
+          <input class="dwell-ll-name" type="text" autocomplete="name">
+        </label>
+        <button type="button" class="secondary same-name">Copy the name from the landlord entry above</button>
+
+        <label class="field"><span class="q">Correspondence address in England and Wales for that person, in relation to this dwelling. The draft regulations say this may not be a PO Box.</span>
+          <textarea class="dwell-corr" autocomplete="off"></textarea>
+        </label>
+        <button type="button" class="secondary same-address">Copy the address from the landlord entry above</button>
+
+        <label class="field"><span class="q">Email address for that person in relation to this dwelling</span>
+          <input class="dwell-email" type="email" autocomplete="email">
+        </label>
+        <button type="button" class="secondary same-email">Copy the email from the landlord entry above</button>
+
+        <label class="field"><span class="q">Ownership type</span>
+          <input class="ownership" type="text" autocomplete="off">
+        </label>
+        <p class="field-hint">The draft regulations say “ownership type” and do not list the options. The NRLA gives freehold and leasehold as examples. Write what applies, in your own words.</p>
+
+        <label class="field"><span class="q">Dwelling type</span>
+          <select class="dwell-type">
+            <option value="">Choose</option>
+            <option value="detached">Detached house</option>
+            <option value="semi">Semi-detached house</option>
+            <option value="terraced">Terraced house</option>
+            <option value="flat">Flat</option>
+            <option value="other">Other — describe it in the next box</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations define dwelling type as the physical form, “such as a detached house, semi-detached house, terraced house or a flat”. Those are examples, not a closed list printed as a menu.</p>
+        <label class="field"><span class="q">If you chose other, describe the dwelling type</span>
+          <input class="dwell-type-other" type="text" autocomplete="off">
+        </label>
+
+        <label class="field"><span class="q">Number of bedrooms</span>
+          <input class="bedrooms" type="text" inputmode="numeric" autocomplete="off">
+        </label>
+
+        <label class="field"><span class="q">Whether the dwelling is currently under let</span>
+          <select class="under-let">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+
+        <p class="field-hint">Name and email of any of the following. The draft regulations say “any of”, so a person who does not exist is not a missing document. Write “none” where there is nobody to name, so a blank is not mistaken for a finished answer.</p>
+
+        <label class="field"><span class="q">Owner of the freehold property which includes the dwelling — name</span>
+          <input class="fh-name" type="text" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Owner of the freehold — email address</span>
+          <input class="fh-email" type="email" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Any other superior landlord — name</span>
+          <input class="sup-name" type="text" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Any other superior landlord — email address</span>
+          <input class="sup-email" type="email" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Property manager for the dwelling — name</span>
+          <input class="pm-name" type="text" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Property manager — email address</span>
+          <input class="pm-email" type="email" autocomplete="off">
+        </label>
+
+        <h3>Tenancy and health and safety (Part 2)</h3>
+        <p class="field-hint">For a dwelling which is already let, the draft regulations allow the dwelling entry to be made first, and require this Part 2 information before the end of 28 days beginning with the day the entry was made. This page does not time that for you.</p>
+
+        <label class="field"><span class="q">Number of occupants of the dwelling</span>
+          <input class="occupants" type="text" inputmode="numeric" autocomplete="off">
+        </label>
+        <p class="field-hint">The draft regulations say “number of occupants”. They do not, in the text fetched, define occupants as excluding short-term guests. The NRLA describes this as tenants and permitted occupiers, not short-term guests. Use the NRLA gloss only as their description, not as a definition printed in the draft instrument.</p>
+
+        <label class="field"><span class="q">Number of households occupying the dwelling</span>
+          <input class="households" type="text" inputmode="numeric" autocomplete="off">
+        </label>
+
+        <label class="field"><span class="q">Does the dwelling require an HMO licence under section 55 of the Housing Act 2004?</span>
+          <select class="licence-need lic-hmo">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="licence-block">
+          <div class="licence-number-wrap hidden">
+            <label class="field"><span class="q">HMO licence number, if you have it</span>
+              <input class="lic-hmo-no" type="text" autocomplete="off">
+            </label>
+            <p class="field-hint">The draft regulations ask for the number if available. This sheet does not tell you whether a licence is required. Holding a licence does not, on the NRLA’s account, take the place of a database entry.</p>
+          </div>
+        </div>
+
+        <label class="field"><span class="q">Does the dwelling require an additional licence under a designation made under section 56 of the Housing Act 2004?</span>
+          <select class="licence-need lic-add">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="licence-block">
+          <div class="licence-number-wrap hidden">
+            <label class="field"><span class="q">Additional licence number, if you have it</span>
+              <input class="lic-add-no" type="text" autocomplete="off">
+            </label>
+          </div>
+        </div>
+
+        <label class="field"><span class="q">Does the dwelling require a selective licence under section 80 of the Housing Act 2004?</span>
+          <select class="licence-need lic-sel">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="licence-block">
+          <div class="licence-number-wrap hidden">
+            <label class="field"><span class="q">Selective licence number, if you have it</span>
+              <input class="lic-sel-no" type="text" autocomplete="off">
+            </label>
+          </div>
+        </div>
+
+        <label class="field"><span class="q">Does the dwelling have a gas supply?</span>
+          <select class="gas-supply">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="gas-extra hidden">
+          <label class="field"><span class="q">Gas safety record issue date</span>
+            <input class="gas-date" type="date">
+          </label>
+          <p class="field-hint">If a gas safety record exists, the draft regulations ask for a copy as well as the issue date. This sheet does not take a copy. Keep the record and give it on the government service if you register.</p>
+        </div>
+
+        <label class="field"><span class="q">Electrical safety document</span>
+          <select class="elec-route">
+            <option value="">Choose</option>
+            <option value="eicr">An EICR, if one exists — you will note the expiry date</option>
+            <option value="eic">An appropriate EIC — you will note the issue date</option>
+          </select>
+        </label>
+        <p class="field-hint">Schedule 3 asks for a copy of the EICR, if one exists, or an appropriate EIC, and for the EICR expiry date or the EIC issue date. “Expiry” is the word used for the EICR, not for the EIC. No file is uploaded here.</p>
+        <label class="field"><span class="q">EICR expiry date</span>
+          <input class="eicr-expiry" type="date">
+        </label>
+        <label class="field"><span class="q">EIC issue date</span>
+          <input class="eic-date" type="date">
+        </label>
+
+        <label class="field"><span class="q">Was the landlord required to give a valid EPC to the person who is the tenant currently occupying the dwelling?</span>
+          <select class="epc-required">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="epc-extra hidden">
+          <p class="field-hint">Where the answer is yes, the draft regulations ask for a copy of the most recent EPC, if one exists. This sheet does not take that copy.</p>
+        </div>
+
+        <label class="field"><span class="q">Is the most recent EPC still valid?</span>
+          <select class="epc-valid">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No, it is no longer valid</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations define “valid” by reference to regulation 9(2) of the Energy Performance of Buildings (England and Wales) Regulations 2012. This sheet does not apply that test.</p>
+        <div class="epc-invalid-extra hidden">
+          <label class="field"><span class="q">Date the current tenancy started</span>
+            <input class="tenancy-start" type="date">
+          </label>
+          <p class="field-hint">Asked by the draft regulations if the most recent EPC is no longer valid. The NRLA also says that where an EPC was not required, or has lapsed since the tenancy began, the landlord must provide the tenancy start date.</p>
+        </div>
+
+        <label class="field"><span class="q">Does the most recent EPC give an energy performance rating below the minimum level of energy efficiency?</span>
+          <select class="below-min">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations point “minimum level of energy efficiency” to regulation 22(b) of the Energy Efficiency (Private Rented Property) (England and Wales) Regulations 2015. They do not print a letter or number for that minimum in the text fetched on 4 October 2026. This sheet will not guess it.</p>
+        <div class="mees-extra hidden">
+          <label class="field"><span class="q">Has the dwelling a registered MEES exemption?</span>
+            <select class="mees-reg">
+              <option value="">Choose</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+          <label class="field"><span class="q">If yes, what types of exemption apply?</span>
+            <textarea class="mees-types" autocomplete="off"></textarea>
+          </label>
+          <p class="field-hint">“Registered MEES exemption” in the draft regulations means an exemption relied on and registered on the PRS Exemptions Register. Writing it here does not register an exemption.</p>
+        </div>
+
+        <label class="field"><span class="q">Rent charged</span>
+          <input class="rent-amount" type="text" autocomplete="off" placeholder="">
+        </label>
+        <p class="field-hint">Write the amount as you would say it. Include the currency yourself. This page does not calculate anything.</p>
+        <label class="field"><span class="q">How often it has to be paid</span>
+          <input class="rent-frequency" type="text" autocomplete="off">
+        </label>
+        <p class="field-hint">The draft regulations say “frequency of payment” and do not list weekly, monthly, or any other period as the only answers.</p>
+        <label class="field"><span class="q">Is the rent inclusive of utilities?</span>
+          <select class="rent-utils">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <label class="field"><span class="q">If yes, which utilities are included?</span>
+          <input class="which-utils" type="text" autocomplete="off">
+        </label>
+        <p class="field-hint">The NRLA summarises this as whether the rent includes bills. The draft regulations say “utilities”, and if so, what utilities are included.</p>
+
+        <label class="field"><span class="q">Is the dwelling let furnished, partly furnished, or unfurnished?</span>
+          <select class="furnished">
+            <option value="">Choose</option>
+            <option value="furnished">Furnished</option>
+            <option value="partly">Partly furnished</option>
+            <option value="unfurnished">Unfurnished</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations say “partly furnished”. The NRLA says “part furnished”. This sheet uses the draft regulations’ wording.</p>
+      </fieldset>
+
+
+      <fieldset class="dwelling" data-dwell="3">
+        <legend>Dwelling 3</legend>
+        <p class="field-hint">Schedule 3 of the draft regulations. Leave a line blank if you do not have it yet. The printout will say “you still need this”. Do not upload photographs or certificates here.</p>
+
+        <h3>Dwelling information (Part 1)</h3>
+
+        <label class="field"><span class="q">Address of the dwelling</span>
+          <textarea class="dwell-address" autocomplete="off"></textarea>
+        </label>
+
+        <label class="field"><span class="q">Name of the person who is, or intends to become, the residential landlord of this dwelling</span>
+          <input class="dwell-ll-name" type="text" autocomplete="name">
+        </label>
+        <button type="button" class="secondary same-name">Copy the name from the landlord entry above</button>
+
+        <label class="field"><span class="q">Correspondence address in England and Wales for that person, in relation to this dwelling. The draft regulations say this may not be a PO Box.</span>
+          <textarea class="dwell-corr" autocomplete="off"></textarea>
+        </label>
+        <button type="button" class="secondary same-address">Copy the address from the landlord entry above</button>
+
+        <label class="field"><span class="q">Email address for that person in relation to this dwelling</span>
+          <input class="dwell-email" type="email" autocomplete="email">
+        </label>
+        <button type="button" class="secondary same-email">Copy the email from the landlord entry above</button>
+
+        <label class="field"><span class="q">Ownership type</span>
+          <input class="ownership" type="text" autocomplete="off">
+        </label>
+        <p class="field-hint">The draft regulations say “ownership type” and do not list the options. The NRLA gives freehold and leasehold as examples. Write what applies, in your own words.</p>
+
+        <label class="field"><span class="q">Dwelling type</span>
+          <select class="dwell-type">
+            <option value="">Choose</option>
+            <option value="detached">Detached house</option>
+            <option value="semi">Semi-detached house</option>
+            <option value="terraced">Terraced house</option>
+            <option value="flat">Flat</option>
+            <option value="other">Other — describe it in the next box</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations define dwelling type as the physical form, “such as a detached house, semi-detached house, terraced house or a flat”. Those are examples, not a closed list printed as a menu.</p>
+        <label class="field"><span class="q">If you chose other, describe the dwelling type</span>
+          <input class="dwell-type-other" type="text" autocomplete="off">
+        </label>
+
+        <label class="field"><span class="q">Number of bedrooms</span>
+          <input class="bedrooms" type="text" inputmode="numeric" autocomplete="off">
+        </label>
+
+        <label class="field"><span class="q">Whether the dwelling is currently under let</span>
+          <select class="under-let">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+
+        <p class="field-hint">Name and email of any of the following. The draft regulations say “any of”, so a person who does not exist is not a missing document. Write “none” where there is nobody to name, so a blank is not mistaken for a finished answer.</p>
+
+        <label class="field"><span class="q">Owner of the freehold property which includes the dwelling — name</span>
+          <input class="fh-name" type="text" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Owner of the freehold — email address</span>
+          <input class="fh-email" type="email" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Any other superior landlord — name</span>
+          <input class="sup-name" type="text" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Any other superior landlord — email address</span>
+          <input class="sup-email" type="email" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Property manager for the dwelling — name</span>
+          <input class="pm-name" type="text" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Property manager — email address</span>
+          <input class="pm-email" type="email" autocomplete="off">
+        </label>
+
+        <h3>Tenancy and health and safety (Part 2)</h3>
+        <p class="field-hint">For a dwelling which is already let, the draft regulations allow the dwelling entry to be made first, and require this Part 2 information before the end of 28 days beginning with the day the entry was made. This page does not time that for you.</p>
+
+        <label class="field"><span class="q">Number of occupants of the dwelling</span>
+          <input class="occupants" type="text" inputmode="numeric" autocomplete="off">
+        </label>
+        <p class="field-hint">The draft regulations say “number of occupants”. They do not, in the text fetched, define occupants as excluding short-term guests. The NRLA describes this as tenants and permitted occupiers, not short-term guests. Use the NRLA gloss only as their description, not as a definition printed in the draft instrument.</p>
+
+        <label class="field"><span class="q">Number of households occupying the dwelling</span>
+          <input class="households" type="text" inputmode="numeric" autocomplete="off">
+        </label>
+
+        <label class="field"><span class="q">Does the dwelling require an HMO licence under section 55 of the Housing Act 2004?</span>
+          <select class="licence-need lic-hmo">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="licence-block">
+          <div class="licence-number-wrap hidden">
+            <label class="field"><span class="q">HMO licence number, if you have it</span>
+              <input class="lic-hmo-no" type="text" autocomplete="off">
+            </label>
+            <p class="field-hint">The draft regulations ask for the number if available. This sheet does not tell you whether a licence is required. Holding a licence does not, on the NRLA’s account, take the place of a database entry.</p>
+          </div>
+        </div>
+
+        <label class="field"><span class="q">Does the dwelling require an additional licence under a designation made under section 56 of the Housing Act 2004?</span>
+          <select class="licence-need lic-add">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="licence-block">
+          <div class="licence-number-wrap hidden">
+            <label class="field"><span class="q">Additional licence number, if you have it</span>
+              <input class="lic-add-no" type="text" autocomplete="off">
+            </label>
+          </div>
+        </div>
+
+        <label class="field"><span class="q">Does the dwelling require a selective licence under section 80 of the Housing Act 2004?</span>
+          <select class="licence-need lic-sel">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="licence-block">
+          <div class="licence-number-wrap hidden">
+            <label class="field"><span class="q">Selective licence number, if you have it</span>
+              <input class="lic-sel-no" type="text" autocomplete="off">
+            </label>
+          </div>
+        </div>
+
+        <label class="field"><span class="q">Does the dwelling have a gas supply?</span>
+          <select class="gas-supply">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="gas-extra hidden">
+          <label class="field"><span class="q">Gas safety record issue date</span>
+            <input class="gas-date" type="date">
+          </label>
+          <p class="field-hint">If a gas safety record exists, the draft regulations ask for a copy as well as the issue date. This sheet does not take a copy. Keep the record and give it on the government service if you register.</p>
+        </div>
+
+        <label class="field"><span class="q">Electrical safety document</span>
+          <select class="elec-route">
+            <option value="">Choose</option>
+            <option value="eicr">An EICR, if one exists — you will note the expiry date</option>
+            <option value="eic">An appropriate EIC — you will note the issue date</option>
+          </select>
+        </label>
+        <p class="field-hint">Schedule 3 asks for a copy of the EICR, if one exists, or an appropriate EIC, and for the EICR expiry date or the EIC issue date. “Expiry” is the word used for the EICR, not for the EIC. No file is uploaded here.</p>
+        <label class="field"><span class="q">EICR expiry date</span>
+          <input class="eicr-expiry" type="date">
+        </label>
+        <label class="field"><span class="q">EIC issue date</span>
+          <input class="eic-date" type="date">
+        </label>
+
+        <label class="field"><span class="q">Was the landlord required to give a valid EPC to the person who is the tenant currently occupying the dwelling?</span>
+          <select class="epc-required">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="epc-extra hidden">
+          <p class="field-hint">Where the answer is yes, the draft regulations ask for a copy of the most recent EPC, if one exists. This sheet does not take that copy.</p>
+        </div>
+
+        <label class="field"><span class="q">Is the most recent EPC still valid?</span>
+          <select class="epc-valid">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No, it is no longer valid</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations define “valid” by reference to regulation 9(2) of the Energy Performance of Buildings (England and Wales) Regulations 2012. This sheet does not apply that test.</p>
+        <div class="epc-invalid-extra hidden">
+          <label class="field"><span class="q">Date the current tenancy started</span>
+            <input class="tenancy-start" type="date">
+          </label>
+          <p class="field-hint">Asked by the draft regulations if the most recent EPC is no longer valid. The NRLA also says that where an EPC was not required, or has lapsed since the tenancy began, the landlord must provide the tenancy start date.</p>
+        </div>
+
+        <label class="field"><span class="q">Does the most recent EPC give an energy performance rating below the minimum level of energy efficiency?</span>
+          <select class="below-min">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations point “minimum level of energy efficiency” to regulation 22(b) of the Energy Efficiency (Private Rented Property) (England and Wales) Regulations 2015. They do not print a letter or number for that minimum in the text fetched on 4 October 2026. This sheet will not guess it.</p>
+        <div class="mees-extra hidden">
+          <label class="field"><span class="q">Has the dwelling a registered MEES exemption?</span>
+            <select class="mees-reg">
+              <option value="">Choose</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+          <label class="field"><span class="q">If yes, what types of exemption apply?</span>
+            <textarea class="mees-types" autocomplete="off"></textarea>
+          </label>
+          <p class="field-hint">“Registered MEES exemption” in the draft regulations means an exemption relied on and registered on the PRS Exemptions Register. Writing it here does not register an exemption.</p>
+        </div>
+
+        <label class="field"><span class="q">Rent charged</span>
+          <input class="rent-amount" type="text" autocomplete="off" placeholder="">
+        </label>
+        <p class="field-hint">Write the amount as you would say it. Include the currency yourself. This page does not calculate anything.</p>
+        <label class="field"><span class="q">How often it has to be paid</span>
+          <input class="rent-frequency" type="text" autocomplete="off">
+        </label>
+        <p class="field-hint">The draft regulations say “frequency of payment” and do not list weekly, monthly, or any other period as the only answers.</p>
+        <label class="field"><span class="q">Is the rent inclusive of utilities?</span>
+          <select class="rent-utils">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <label class="field"><span class="q">If yes, which utilities are included?</span>
+          <input class="which-utils" type="text" autocomplete="off">
+        </label>
+        <p class="field-hint">The NRLA summarises this as whether the rent includes bills. The draft regulations say “utilities”, and if so, what utilities are included.</p>
+
+        <label class="field"><span class="q">Is the dwelling let furnished, partly furnished, or unfurnished?</span>
+          <select class="furnished">
+            <option value="">Choose</option>
+            <option value="furnished">Furnished</option>
+            <option value="partly">Partly furnished</option>
+            <option value="unfurnished">Unfurnished</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations say “partly furnished”. The NRLA says “part furnished”. This sheet uses the draft regulations’ wording.</p>
+      </fieldset>
+
+
+      <fieldset class="dwelling" data-dwell="4">
+        <legend>Dwelling 4</legend>
+        <p class="field-hint">Schedule 3 of the draft regulations. Leave a line blank if you do not have it yet. The printout will say “you still need this”. Do not upload photographs or certificates here.</p>
+
+        <h3>Dwelling information (Part 1)</h3>
+
+        <label class="field"><span class="q">Address of the dwelling</span>
+          <textarea class="dwell-address" autocomplete="off"></textarea>
+        </label>
+
+        <label class="field"><span class="q">Name of the person who is, or intends to become, the residential landlord of this dwelling</span>
+          <input class="dwell-ll-name" type="text" autocomplete="name">
+        </label>
+        <button type="button" class="secondary same-name">Copy the name from the landlord entry above</button>
+
+        <label class="field"><span class="q">Correspondence address in England and Wales for that person, in relation to this dwelling. The draft regulations say this may not be a PO Box.</span>
+          <textarea class="dwell-corr" autocomplete="off"></textarea>
+        </label>
+        <button type="button" class="secondary same-address">Copy the address from the landlord entry above</button>
+
+        <label class="field"><span class="q">Email address for that person in relation to this dwelling</span>
+          <input class="dwell-email" type="email" autocomplete="email">
+        </label>
+        <button type="button" class="secondary same-email">Copy the email from the landlord entry above</button>
+
+        <label class="field"><span class="q">Ownership type</span>
+          <input class="ownership" type="text" autocomplete="off">
+        </label>
+        <p class="field-hint">The draft regulations say “ownership type” and do not list the options. The NRLA gives freehold and leasehold as examples. Write what applies, in your own words.</p>
+
+        <label class="field"><span class="q">Dwelling type</span>
+          <select class="dwell-type">
+            <option value="">Choose</option>
+            <option value="detached">Detached house</option>
+            <option value="semi">Semi-detached house</option>
+            <option value="terraced">Terraced house</option>
+            <option value="flat">Flat</option>
+            <option value="other">Other — describe it in the next box</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations define dwelling type as the physical form, “such as a detached house, semi-detached house, terraced house or a flat”. Those are examples, not a closed list printed as a menu.</p>
+        <label class="field"><span class="q">If you chose other, describe the dwelling type</span>
+          <input class="dwell-type-other" type="text" autocomplete="off">
+        </label>
+
+        <label class="field"><span class="q">Number of bedrooms</span>
+          <input class="bedrooms" type="text" inputmode="numeric" autocomplete="off">
+        </label>
+
+        <label class="field"><span class="q">Whether the dwelling is currently under let</span>
+          <select class="under-let">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+
+        <p class="field-hint">Name and email of any of the following. The draft regulations say “any of”, so a person who does not exist is not a missing document. Write “none” where there is nobody to name, so a blank is not mistaken for a finished answer.</p>
+
+        <label class="field"><span class="q">Owner of the freehold property which includes the dwelling — name</span>
+          <input class="fh-name" type="text" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Owner of the freehold — email address</span>
+          <input class="fh-email" type="email" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Any other superior landlord — name</span>
+          <input class="sup-name" type="text" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Any other superior landlord — email address</span>
+          <input class="sup-email" type="email" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Property manager for the dwelling — name</span>
+          <input class="pm-name" type="text" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Property manager — email address</span>
+          <input class="pm-email" type="email" autocomplete="off">
+        </label>
+
+        <h3>Tenancy and health and safety (Part 2)</h3>
+        <p class="field-hint">For a dwelling which is already let, the draft regulations allow the dwelling entry to be made first, and require this Part 2 information before the end of 28 days beginning with the day the entry was made. This page does not time that for you.</p>
+
+        <label class="field"><span class="q">Number of occupants of the dwelling</span>
+          <input class="occupants" type="text" inputmode="numeric" autocomplete="off">
+        </label>
+        <p class="field-hint">The draft regulations say “number of occupants”. They do not, in the text fetched, define occupants as excluding short-term guests. The NRLA describes this as tenants and permitted occupiers, not short-term guests. Use the NRLA gloss only as their description, not as a definition printed in the draft instrument.</p>
+
+        <label class="field"><span class="q">Number of households occupying the dwelling</span>
+          <input class="households" type="text" inputmode="numeric" autocomplete="off">
+        </label>
+
+        <label class="field"><span class="q">Does the dwelling require an HMO licence under section 55 of the Housing Act 2004?</span>
+          <select class="licence-need lic-hmo">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="licence-block">
+          <div class="licence-number-wrap hidden">
+            <label class="field"><span class="q">HMO licence number, if you have it</span>
+              <input class="lic-hmo-no" type="text" autocomplete="off">
+            </label>
+            <p class="field-hint">The draft regulations ask for the number if available. This sheet does not tell you whether a licence is required. Holding a licence does not, on the NRLA’s account, take the place of a database entry.</p>
+          </div>
+        </div>
+
+        <label class="field"><span class="q">Does the dwelling require an additional licence under a designation made under section 56 of the Housing Act 2004?</span>
+          <select class="licence-need lic-add">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="licence-block">
+          <div class="licence-number-wrap hidden">
+            <label class="field"><span class="q">Additional licence number, if you have it</span>
+              <input class="lic-add-no" type="text" autocomplete="off">
+            </label>
+          </div>
+        </div>
+
+        <label class="field"><span class="q">Does the dwelling require a selective licence under section 80 of the Housing Act 2004?</span>
+          <select class="licence-need lic-sel">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="licence-block">
+          <div class="licence-number-wrap hidden">
+            <label class="field"><span class="q">Selective licence number, if you have it</span>
+              <input class="lic-sel-no" type="text" autocomplete="off">
+            </label>
+          </div>
+        </div>
+
+        <label class="field"><span class="q">Does the dwelling have a gas supply?</span>
+          <select class="gas-supply">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="gas-extra hidden">
+          <label class="field"><span class="q">Gas safety record issue date</span>
+            <input class="gas-date" type="date">
+          </label>
+          <p class="field-hint">If a gas safety record exists, the draft regulations ask for a copy as well as the issue date. This sheet does not take a copy. Keep the record and give it on the government service if you register.</p>
+        </div>
+
+        <label class="field"><span class="q">Electrical safety document</span>
+          <select class="elec-route">
+            <option value="">Choose</option>
+            <option value="eicr">An EICR, if one exists — you will note the expiry date</option>
+            <option value="eic">An appropriate EIC — you will note the issue date</option>
+          </select>
+        </label>
+        <p class="field-hint">Schedule 3 asks for a copy of the EICR, if one exists, or an appropriate EIC, and for the EICR expiry date or the EIC issue date. “Expiry” is the word used for the EICR, not for the EIC. No file is uploaded here.</p>
+        <label class="field"><span class="q">EICR expiry date</span>
+          <input class="eicr-expiry" type="date">
+        </label>
+        <label class="field"><span class="q">EIC issue date</span>
+          <input class="eic-date" type="date">
+        </label>
+
+        <label class="field"><span class="q">Was the landlord required to give a valid EPC to the person who is the tenant currently occupying the dwelling?</span>
+          <select class="epc-required">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="epc-extra hidden">
+          <p class="field-hint">Where the answer is yes, the draft regulations ask for a copy of the most recent EPC, if one exists. This sheet does not take that copy.</p>
+        </div>
+
+        <label class="field"><span class="q">Is the most recent EPC still valid?</span>
+          <select class="epc-valid">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No, it is no longer valid</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations define “valid” by reference to regulation 9(2) of the Energy Performance of Buildings (England and Wales) Regulations 2012. This sheet does not apply that test.</p>
+        <div class="epc-invalid-extra hidden">
+          <label class="field"><span class="q">Date the current tenancy started</span>
+            <input class="tenancy-start" type="date">
+          </label>
+          <p class="field-hint">Asked by the draft regulations if the most recent EPC is no longer valid. The NRLA also says that where an EPC was not required, or has lapsed since the tenancy began, the landlord must provide the tenancy start date.</p>
+        </div>
+
+        <label class="field"><span class="q">Does the most recent EPC give an energy performance rating below the minimum level of energy efficiency?</span>
+          <select class="below-min">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations point “minimum level of energy efficiency” to regulation 22(b) of the Energy Efficiency (Private Rented Property) (England and Wales) Regulations 2015. They do not print a letter or number for that minimum in the text fetched on 4 October 2026. This sheet will not guess it.</p>
+        <div class="mees-extra hidden">
+          <label class="field"><span class="q">Has the dwelling a registered MEES exemption?</span>
+            <select class="mees-reg">
+              <option value="">Choose</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+          <label class="field"><span class="q">If yes, what types of exemption apply?</span>
+            <textarea class="mees-types" autocomplete="off"></textarea>
+          </label>
+          <p class="field-hint">“Registered MEES exemption” in the draft regulations means an exemption relied on and registered on the PRS Exemptions Register. Writing it here does not register an exemption.</p>
+        </div>
+
+        <label class="field"><span class="q">Rent charged</span>
+          <input class="rent-amount" type="text" autocomplete="off" placeholder="">
+        </label>
+        <p class="field-hint">Write the amount as you would say it. Include the currency yourself. This page does not calculate anything.</p>
+        <label class="field"><span class="q">How often it has to be paid</span>
+          <input class="rent-frequency" type="text" autocomplete="off">
+        </label>
+        <p class="field-hint">The draft regulations say “frequency of payment” and do not list weekly, monthly, or any other period as the only answers.</p>
+        <label class="field"><span class="q">Is the rent inclusive of utilities?</span>
+          <select class="rent-utils">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <label class="field"><span class="q">If yes, which utilities are included?</span>
+          <input class="which-utils" type="text" autocomplete="off">
+        </label>
+        <p class="field-hint">The NRLA summarises this as whether the rent includes bills. The draft regulations say “utilities”, and if so, what utilities are included.</p>
+
+        <label class="field"><span class="q">Is the dwelling let furnished, partly furnished, or unfurnished?</span>
+          <select class="furnished">
+            <option value="">Choose</option>
+            <option value="furnished">Furnished</option>
+            <option value="partly">Partly furnished</option>
+            <option value="unfurnished">Unfurnished</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations say “partly furnished”. The NRLA says “part furnished”. This sheet uses the draft regulations’ wording.</p>
+      </fieldset>
+
+
+      <fieldset class="dwelling" data-dwell="5">
+        <legend>Dwelling 5</legend>
+        <p class="field-hint">Schedule 3 of the draft regulations. Leave a line blank if you do not have it yet. The printout will say “you still need this”. Do not upload photographs or certificates here.</p>
+
+        <h3>Dwelling information (Part 1)</h3>
+
+        <label class="field"><span class="q">Address of the dwelling</span>
+          <textarea class="dwell-address" autocomplete="off"></textarea>
+        </label>
+
+        <label class="field"><span class="q">Name of the person who is, or intends to become, the residential landlord of this dwelling</span>
+          <input class="dwell-ll-name" type="text" autocomplete="name">
+        </label>
+        <button type="button" class="secondary same-name">Copy the name from the landlord entry above</button>
+
+        <label class="field"><span class="q">Correspondence address in England and Wales for that person, in relation to this dwelling. The draft regulations say this may not be a PO Box.</span>
+          <textarea class="dwell-corr" autocomplete="off"></textarea>
+        </label>
+        <button type="button" class="secondary same-address">Copy the address from the landlord entry above</button>
+
+        <label class="field"><span class="q">Email address for that person in relation to this dwelling</span>
+          <input class="dwell-email" type="email" autocomplete="email">
+        </label>
+        <button type="button" class="secondary same-email">Copy the email from the landlord entry above</button>
+
+        <label class="field"><span class="q">Ownership type</span>
+          <input class="ownership" type="text" autocomplete="off">
+        </label>
+        <p class="field-hint">The draft regulations say “ownership type” and do not list the options. The NRLA gives freehold and leasehold as examples. Write what applies, in your own words.</p>
+
+        <label class="field"><span class="q">Dwelling type</span>
+          <select class="dwell-type">
+            <option value="">Choose</option>
+            <option value="detached">Detached house</option>
+            <option value="semi">Semi-detached house</option>
+            <option value="terraced">Terraced house</option>
+            <option value="flat">Flat</option>
+            <option value="other">Other — describe it in the next box</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations define dwelling type as the physical form, “such as a detached house, semi-detached house, terraced house or a flat”. Those are examples, not a closed list printed as a menu.</p>
+        <label class="field"><span class="q">If you chose other, describe the dwelling type</span>
+          <input class="dwell-type-other" type="text" autocomplete="off">
+        </label>
+
+        <label class="field"><span class="q">Number of bedrooms</span>
+          <input class="bedrooms" type="text" inputmode="numeric" autocomplete="off">
+        </label>
+
+        <label class="field"><span class="q">Whether the dwelling is currently under let</span>
+          <select class="under-let">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+
+        <p class="field-hint">Name and email of any of the following. The draft regulations say “any of”, so a person who does not exist is not a missing document. Write “none” where there is nobody to name, so a blank is not mistaken for a finished answer.</p>
+
+        <label class="field"><span class="q">Owner of the freehold property which includes the dwelling — name</span>
+          <input class="fh-name" type="text" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Owner of the freehold — email address</span>
+          <input class="fh-email" type="email" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Any other superior landlord — name</span>
+          <input class="sup-name" type="text" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Any other superior landlord — email address</span>
+          <input class="sup-email" type="email" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Property manager for the dwelling — name</span>
+          <input class="pm-name" type="text" autocomplete="off">
+        </label>
+        <label class="field"><span class="q">Property manager — email address</span>
+          <input class="pm-email" type="email" autocomplete="off">
+        </label>
+
+        <h3>Tenancy and health and safety (Part 2)</h3>
+        <p class="field-hint">For a dwelling which is already let, the draft regulations allow the dwelling entry to be made first, and require this Part 2 information before the end of 28 days beginning with the day the entry was made. This page does not time that for you.</p>
+
+        <label class="field"><span class="q">Number of occupants of the dwelling</span>
+          <input class="occupants" type="text" inputmode="numeric" autocomplete="off">
+        </label>
+        <p class="field-hint">The draft regulations say “number of occupants”. They do not, in the text fetched, define occupants as excluding short-term guests. The NRLA describes this as tenants and permitted occupiers, not short-term guests. Use the NRLA gloss only as their description, not as a definition printed in the draft instrument.</p>
+
+        <label class="field"><span class="q">Number of households occupying the dwelling</span>
+          <input class="households" type="text" inputmode="numeric" autocomplete="off">
+        </label>
+
+        <label class="field"><span class="q">Does the dwelling require an HMO licence under section 55 of the Housing Act 2004?</span>
+          <select class="licence-need lic-hmo">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="licence-block">
+          <div class="licence-number-wrap hidden">
+            <label class="field"><span class="q">HMO licence number, if you have it</span>
+              <input class="lic-hmo-no" type="text" autocomplete="off">
+            </label>
+            <p class="field-hint">The draft regulations ask for the number if available. This sheet does not tell you whether a licence is required. Holding a licence does not, on the NRLA’s account, take the place of a database entry.</p>
+          </div>
+        </div>
+
+        <label class="field"><span class="q">Does the dwelling require an additional licence under a designation made under section 56 of the Housing Act 2004?</span>
+          <select class="licence-need lic-add">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="licence-block">
+          <div class="licence-number-wrap hidden">
+            <label class="field"><span class="q">Additional licence number, if you have it</span>
+              <input class="lic-add-no" type="text" autocomplete="off">
+            </label>
+          </div>
+        </div>
+
+        <label class="field"><span class="q">Does the dwelling require a selective licence under section 80 of the Housing Act 2004?</span>
+          <select class="licence-need lic-sel">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="licence-block">
+          <div class="licence-number-wrap hidden">
+            <label class="field"><span class="q">Selective licence number, if you have it</span>
+              <input class="lic-sel-no" type="text" autocomplete="off">
+            </label>
+          </div>
+        </div>
+
+        <label class="field"><span class="q">Does the dwelling have a gas supply?</span>
+          <select class="gas-supply">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="gas-extra hidden">
+          <label class="field"><span class="q">Gas safety record issue date</span>
+            <input class="gas-date" type="date">
+          </label>
+          <p class="field-hint">If a gas safety record exists, the draft regulations ask for a copy as well as the issue date. This sheet does not take a copy. Keep the record and give it on the government service if you register.</p>
+        </div>
+
+        <label class="field"><span class="q">Electrical safety document</span>
+          <select class="elec-route">
+            <option value="">Choose</option>
+            <option value="eicr">An EICR, if one exists — you will note the expiry date</option>
+            <option value="eic">An appropriate EIC — you will note the issue date</option>
+          </select>
+        </label>
+        <p class="field-hint">Schedule 3 asks for a copy of the EICR, if one exists, or an appropriate EIC, and for the EICR expiry date or the EIC issue date. “Expiry” is the word used for the EICR, not for the EIC. No file is uploaded here.</p>
+        <label class="field"><span class="q">EICR expiry date</span>
+          <input class="eicr-expiry" type="date">
+        </label>
+        <label class="field"><span class="q">EIC issue date</span>
+          <input class="eic-date" type="date">
+        </label>
+
+        <label class="field"><span class="q">Was the landlord required to give a valid EPC to the person who is the tenant currently occupying the dwelling?</span>
+          <select class="epc-required">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <div class="epc-extra hidden">
+          <p class="field-hint">Where the answer is yes, the draft regulations ask for a copy of the most recent EPC, if one exists. This sheet does not take that copy.</p>
+        </div>
+
+        <label class="field"><span class="q">Is the most recent EPC still valid?</span>
+          <select class="epc-valid">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No, it is no longer valid</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations define “valid” by reference to regulation 9(2) of the Energy Performance of Buildings (England and Wales) Regulations 2012. This sheet does not apply that test.</p>
+        <div class="epc-invalid-extra hidden">
+          <label class="field"><span class="q">Date the current tenancy started</span>
+            <input class="tenancy-start" type="date">
+          </label>
+          <p class="field-hint">Asked by the draft regulations if the most recent EPC is no longer valid. The NRLA also says that where an EPC was not required, or has lapsed since the tenancy began, the landlord must provide the tenancy start date.</p>
+        </div>
+
+        <label class="field"><span class="q">Does the most recent EPC give an energy performance rating below the minimum level of energy efficiency?</span>
+          <select class="below-min">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations point “minimum level of energy efficiency” to regulation 22(b) of the Energy Efficiency (Private Rented Property) (England and Wales) Regulations 2015. They do not print a letter or number for that minimum in the text fetched on 4 October 2026. This sheet will not guess it.</p>
+        <div class="mees-extra hidden">
+          <label class="field"><span class="q">Has the dwelling a registered MEES exemption?</span>
+            <select class="mees-reg">
+              <option value="">Choose</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+          <label class="field"><span class="q">If yes, what types of exemption apply?</span>
+            <textarea class="mees-types" autocomplete="off"></textarea>
+          </label>
+          <p class="field-hint">“Registered MEES exemption” in the draft regulations means an exemption relied on and registered on the PRS Exemptions Register. Writing it here does not register an exemption.</p>
+        </div>
+
+        <label class="field"><span class="q">Rent charged</span>
+          <input class="rent-amount" type="text" autocomplete="off" placeholder="">
+        </label>
+        <p class="field-hint">Write the amount as you would say it. Include the currency yourself. This page does not calculate anything.</p>
+        <label class="field"><span class="q">How often it has to be paid</span>
+          <input class="rent-frequency" type="text" autocomplete="off">
+        </label>
+        <p class="field-hint">The draft regulations say “frequency of payment” and do not list weekly, monthly, or any other period as the only answers.</p>
+        <label class="field"><span class="q">Is the rent inclusive of utilities?</span>
+          <select class="rent-utils">
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </label>
+        <label class="field"><span class="q">If yes, which utilities are included?</span>
+          <input class="which-utils" type="text" autocomplete="off">
+        </label>
+        <p class="field-hint">The NRLA summarises this as whether the rent includes bills. The draft regulations say “utilities”, and if so, what utilities are included.</p>
+
+        <label class="field"><span class="q">Is the dwelling let furnished, partly furnished, or unfurnished?</span>
+          <select class="furnished">
+            <option value="">Choose</option>
+            <option value="furnished">Furnished</option>
+            <option value="partly">Partly furnished</option>
+            <option value="unfurnished">Unfurnished</option>
+          </select>
+        </label>
+        <p class="field-hint">The draft regulations say “partly furnished”. The NRLA says “part furnished”. This sheet uses the draft regulations’ wording.</p>
+      </fieldset>
+
+
+      <div class="row-actions no-print">
+        <button type="button" class="primary" id="preview-btn">Show the filled sheet on this page</button>
+        <button type="button" class="primary" id="print-btn">Print or save as PDF</button>
+        <button type="button" class="secondary" id="reset-btn">Clear the sheet</button>
+      </div>
+      <p class="small no-print">Printing uses your browser’s print dialogue. Choose “Save as PDF” there if you want a file. The disclaimer is set to repeat at the foot of each printed page. No payment button sits on this form.</p>
+    </form>
+
+    <article id="print-sheet" aria-live="polite"></article>
+    <p class="print-disclaimer">Not legal advice. This sheet does not mean you are compliant, exempt, licensable, or safe from a penalty. Not sent to GOV.UK. Not a registration. Not affiliated with GOV.UK, the NRLA, or any tenancy deposit scheme. Fields from the draft Private Rented Sector Database Regulations 2026 as fetched 4 October 2026; that instrument was still a draft. RegSheet. Olivier Plante, United Kingdom.</p>
+    <div id="live-region" aria-live="polite"></div>
+
+    <footer class="site no-print">
+      <p>RegSheet. Olivier Plante, United Kingdom. Page written 4 October 2026. <a href="index.html">Back to the start</a>. <a href="dates.html">Regional dates</a>.</p>
+    </footer>
+  </div>
+  <script src="js/sheet.js"></script>
+</body>
+</html>
