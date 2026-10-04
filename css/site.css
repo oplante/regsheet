@@ -170,7 +170,7 @@ button, .btn {
   line-height: 1.3;
 }
 
-button.buy, button.primary, button.secondary {
+a.buy, button.buy, button.primary, button.secondary {
   display: inline-block;
   width: 100%;
   margin-top: 0.6rem;
@@ -180,6 +180,8 @@ button.buy, button.primary, button.secondary {
   background: var(--ink);
   color: var(--paper);
   cursor: pointer;
+  text-align: center;
+  text-decoration: none;
 }
 
 button.secondary {
